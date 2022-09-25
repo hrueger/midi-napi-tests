@@ -15,8 +15,14 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  const file = `${__dirname}/problems/${process.argv[process.argv.length - 1]}.js`
+  const fs = require("fs");
+  if (!fs.existsSync(file)) {
+    console.log(`Please specify one of the following problems as the last argument:\n    ${fs.readdirSync("problems").map((f) => f.replace(".js", "")).join("\n    ")}`);
+    process.exit(1);
+  } else {
+    require(file);
+  }
 }
 
 // This method will be called when Electron has finished
@@ -39,5 +45,9 @@ app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+process.on("uncaughtException", (err) => {
+  console.log("Uncaught exception:", err);
+});
+process.on("unhandledRejection", (err) => {
+  console.log("Unhandled rejection:", err);
+});

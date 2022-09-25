@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "pkg": "electron-builder",
-    "prod": "npm run pkg && ./release/win-unpacked/ElectronQuickStart.exe"
+    "prod": ".\\dist\\win-unpacked\\electron-quick-start.exe"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
