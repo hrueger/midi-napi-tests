@@ -19,11 +19,12 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^20.2.0",
-    "electron-builder": "^23.3.3"
+    "electron": "^21.0.0"
   },
   "dependencies": {
-    "@julusian/midi": "^3.0.0-2"
+    "@julusian/midi": "^3.0.0-3",
+    "easymidi": "https://github.com/hrueger/node-easymidi",
+    "midi": "^2.0.0"
   },
   "packageManager": "yarn@3.2.3"
 }
